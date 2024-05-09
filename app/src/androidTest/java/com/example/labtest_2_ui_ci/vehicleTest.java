@@ -39,4 +39,23 @@ public class vehicleTest{
         Espresso.onView(ViewMatchers.withId(R.id.textView3)).check(ViewAssertions.matches(ViewMatchers.withText("fuel:3.0L milage:5.0m")));
         Espresso.onView(ViewMatchers.withId(R.id.textView4)).check(ViewAssertions.matches(ViewMatchers.withText("red")));
     }
+
+    @Test
+    public void suv() {
+        //clearing the i/p
+        Espresso.onView(ViewMatchers.withId(R.id.editTextText4)).perform(ViewActions.clearText());
+        Espresso.onView(ViewMatchers.withId(R.id.editTextText5)).perform(ViewActions.clearText());
+        Espresso.onView(ViewMatchers.withId(R.id.editTextText6)).perform(ViewActions.clearText());
+        // Test EditText input
+        Espresso.onView(ViewMatchers.withId(R.id.editTextText4)).perform(ViewActions.typeText("suv"));
+        Espresso.onView(ViewMatchers.withId(R.id.editTextText5)).perform(ViewActions.typeText("blue"));
+        Espresso.onView(ViewMatchers.withId(R.id.editTextText6)).perform(ViewActions.typeText("0.0"), ViewActions.closeSoftKeyboard());
+
+        // Test button click
+        Espresso.onView(ViewMatchers.withId(R.id.button2)).perform(ViewActions.click());
+
+        // Verify TextViews
+        Espresso.onView(ViewMatchers.withId(R.id.textView3)).check(ViewAssertions.matches(ViewMatchers.withText("fuel:0.0L milage:0.0m")));
+        Espresso.onView(ViewMatchers.withId(R.id.textView4)).check(ViewAssertions.matches(ViewMatchers.withText("blue")));
+    }
 }
