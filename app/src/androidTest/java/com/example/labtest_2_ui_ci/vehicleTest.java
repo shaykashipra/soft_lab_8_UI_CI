@@ -58,4 +58,6 @@ public class vehicleTest{
         Espresso.onView(ViewMatchers.withId(R.id.textView3)).check(ViewAssertions.matches(ViewMatchers.withText("fuel:0.0L milage:0.0m")));
         Espresso.onView(ViewMatchers.withId(R.id.textView4)).check(ViewAssertions.matches(ViewMatchers.withText("blue")));
     }
+
+
 }
